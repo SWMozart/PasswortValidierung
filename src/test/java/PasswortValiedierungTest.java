@@ -2,152 +2,154 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@Test
+public class PasswortValiedierungTest {
+
+    @Test
     void getLengthTest(){
-            // GIVEN
-            String password = "password";
-            // WHEN
-            int actual = Passwortvalidierung.getLength(password);
+        // GIVEN
+        String password = "password";
+        // WHEN
+        int actual = PasswortValidierung.getLength(password);
 
-            // THEN
-            assertEquals(8, actual);
-            }
+        // THEN
+        assertEquals(8, actual);
+    }
 
-@Test
+    @Test
     void checkPasswordTestForForbiddenPassword(){
-            // GIVEN
-            String password = "Password1";
-            // WHEN
-            String actual = Passwortvalidierung.checkPassword(password);
+        // GIVEN
+        String password = "Password1";
+        // WHEN
+        String actual = PasswortValidierung.checkPassword(password);
 
-            // THEN
-            assertEquals("Passwort verboten.", actual);
-            }
+        // THEN
+        assertEquals("Passwort verboten.", actual);
+    }
 
-@Test
+    @Test
     void checkPasswordTestForLonger8NumberUpperLower(){
-            // GIVEN
-            String password = "paSsword1";
-            // WHEN
-            String actual = Passwortvalidierung.checkPassword(password);
+        // GIVEN
+        String password = "paSsword1";
+        // WHEN
+        String actual = PasswortValidierung.checkPassword(password);
 
-            // THEN
-            assertEquals("Passwort akzeptiert.", actual);
-            }
-@Test
+        // THEN
+        assertEquals("Passwort akzeptiert.", actual);
+    }
+    @Test
     void checkPasswordTestForLonger8NoAlphabets(){
-            // GIVEN
-            String password = "12345678";
-            // WHEN
-            String actual = Passwortvalidierung.checkPassword(password);
+        // GIVEN
+        String password = "12345678";
+        // WHEN
+        String actual = PasswortValidierung.checkPassword(password);
 
-            // THEN
-            assertEquals("Fehlende Groß- und Kleinschreibung im Passwort.", actual);
-            }
+        // THEN
+        assertEquals("Fehlende Groß- und Kleinschreibung im Passwort.", actual);
+    }
 
-@Test
+    @Test
     void checkPasswordTestForLonger8NumberNoUpperLower(){
-            // GIVEN
-            String password = "password1";
-            // WHEN
-            String actual = Passwortvalidierung.checkPassword(password);
+        // GIVEN
+        String password = "password1";
+        // WHEN
+        String actual = PasswortValidierung.checkPassword(password);
 
-            // THEN
-            assertEquals("Fehlende Groß- und Kleinschreibung im Passwort.", actual);
-            }
-@Test
+        // THEN
+        assertEquals("Fehlende Groß- und Kleinschreibung im Passwort.", actual);
+    }
+    @Test
     void checkPasswordTestForLonger8NoNumberNoUpperLower(){
-            // GIVEN
-            String password = "password";
-            // WHEN
-            String actual = Passwortvalidierung.checkPassword(password);
+        // GIVEN
+        String password = "password";
+        // WHEN
+        String actual = PasswortValidierung.checkPassword(password);
 
-            // THEN
-            assertEquals("Fehlende Zahl,  Groß- und Kleinschreibung im Passwort.", actual);
-            }
-@Test
+        // THEN
+        assertEquals("Fehlende Zahl,  Groß- und Kleinschreibung im Passwort.", actual);
+    }
+    @Test
     void checkPasswordTestForShorter8(){
-            // GIVEN
-            String password = "pass123";
-            // WHEN
-            String actual = Passwortvalidierung.checkPassword(password);
+        // GIVEN
+        String password = "pass123";
+        // WHEN
+        String actual = PasswortValidierung.checkPassword(password);
 
-            // THEN
-            assertEquals("Passwort zu kurz!", actual);
-            }
+        // THEN
+        assertEquals("Passwort zu kurz!", actual);
+    }
 
-@Test
+    @Test
     void checkNumberTestFor0(){
-            // GIVEN
-            String password = "password0";
-            // WHEN
-            boolean actual = Passwortvalidierung.checkNumber(password);
+        // GIVEN
+        String password = "password0";
+        // WHEN
+        boolean actual = PasswortValidierung.checkNumber(password);
 
-            // THEN
-            assertEquals(true, actual);
-            }
-@Test
+        // THEN
+        assertEquals(true, actual);
+    }
+    @Test
     void checkNumberTestFor10(){
-            // GIVEN
-            String password = "password10";
-            // WHEN
-            boolean actual = Passwortvalidierung.checkNumber(password);
+        // GIVEN
+        String password = "password10";
+        // WHEN
+        boolean actual = PasswortValidierung.checkNumber(password);
 
-            // THEN
-            assertEquals(true, actual);
-            }
-@Test
+        // THEN
+        assertEquals(true, actual);
+    }
+    @Test
     void checkNumberTestForNoNumber(){
-            // GIVEN
-            String password = "password";
-            // WHEN
-            boolean actual = Passwortvalidierung.checkNumber(password);
+        // GIVEN
+        String password = "password";
+        // WHEN
+        boolean actual = PasswortValidierung.checkNumber(password);
 
-            // THEN
-            assertEquals(false, actual);
-            }
+        // THEN
+        assertEquals(false, actual);
+    }
 
-@Test
+    @Test
     void checkUpperLowerTest(){
-            // GIVEN
-            String password = "passWord";
-            // WHEN
-            boolean actual = Passwortvalidierung.checkUpperLower(password);
+        // GIVEN
+        String password = "passWord";
+        // WHEN
+        boolean actual = PasswortValidierung.checkUpperLower(password);
 
-            // THEN
-            assertEquals(true, actual);
-            }
+        // THEN
+        assertEquals(true, actual);
+    }
 
-@Test
+    @Test
     void checkUpperLowerTestOnlyUpper(){
-            // GIVEN
-            String password = "PASSWORD";
-            // WHEN
-            boolean actual = Passwortvalidierung.checkUpperLower(password);
+        // GIVEN
+        String password = "PASSWORD";
+        // WHEN
+        boolean actual = PasswortValidierung.checkUpperLower(password);
 
-            // THEN
-            assertEquals(false, actual);
-            }
+        // THEN
+        assertEquals(false, actual);
+    }
 
-@Test
+    @Test
     void checkUpperLowerTestOnlyLower(){
-            // GIVEN
-            String password = "password";
-            // WHEN
-            boolean actual = Passwortvalidierung.checkUpperLower(password);
+        // GIVEN
+        String password = "password";
+        // WHEN
+        boolean actual = PasswortValidierung.checkUpperLower(password);
 
-            // THEN
-            assertEquals(false, actual);
-            }
+        // THEN
+        assertEquals(false, actual);
+    }
 
-@Test
+    @Test
     void isPasswordBannedTest(){
-            // GIVEN
-            String password = "Password1";
-            // WHEN
-            boolean actual = Passwortvalidierung.isPasswordBanned(password);
+        // GIVEN
+        String password = "Password1";
+        // WHEN
+        boolean actual = PasswortValidierung.isPasswordBanned(password);
 
-            // THEN
-            assertEquals(true, actual);
-            }
-            }
+        // THEN
+        assertEquals(true, actual);
+    }
+}

@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Passwortvaliedierung {
+public class PasswortValidierung {
     public static void main(String[] args) {
         System.out.println("Geben Sie ein Passwort ein:");
         Scanner scanner = new Scanner(System.in);
